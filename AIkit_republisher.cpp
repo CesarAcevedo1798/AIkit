@@ -2,6 +2,8 @@
 #include <tf/tf.h>
 #include <sensor_msgs/Imu.h>
 
+#define NODERATE 50
+
 double imuValues1[4] = {0,0,0,1};
 double imuValues2[4] = {0,0,0,1};
 double imuValues3[4] = {0,0,0,1};
@@ -102,7 +104,7 @@ int main(int argc, char** argv){
   ros::init(argc, argv, "AIkit_republisher");
   ros::NodeHandle n;
 
-  ros::Rate r(10);
+  ros::Rate r(NODERATE);
 
   //republish AIkit1 data
   ros::Subscriber AIkit1_sub = n.subscribe("aikit1/imu",10,AIkit1Callback);
