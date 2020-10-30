@@ -71,12 +71,12 @@ void AIkit3Callback(const sensor_msgs::Imu::ConstPtr &values)
   imuValues3[2] = values->orientation.z;
   imuValues3[3] = values->orientation.w;
   tf::Quaternion q(imuValues3[0],imuValues3[1],imuValues3[2],imuValues3[3]);
-  a1.x = values->linear_acceleration.z;
-  a1.y = values->linear_acceleration.x;
-  a1.z = values->linear_acceleration.y;
-  w1.x = values->angular_velocity.z;
-  w1.y = values->angular_velocity.x;
-  w1.z = values->angular_velocity.y;
+  a3.x = values->linear_acceleration.z;
+  a3.y = values->linear_acceleration.x;
+  a3.z = values->linear_acceleration.y;
+  w3.x = values->angular_velocity.z;
+  w3.y = values->angular_velocity.x;
+  w3.z = values->angular_velocity.y;
   tf::Matrix3x3 m(q);
   m3.setValue(m[0][2],m[0][0],m[0][1],m[1][2],m[1][0],m[1][1],m[2][2],m[2][0],m[2][1]);
   m3.getRotation(q3);
